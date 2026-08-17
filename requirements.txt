@@ -1,0 +1,10 @@
+# Core dependencies
+pandas
+datasets
+pydantic
+python-dotenv
+
+# Testing and UI (optional for later)
+pytest
+fastapi
+uvicorn

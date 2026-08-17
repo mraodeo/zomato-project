@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TableMate AI - Mobile</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#2a2a2d",
+                        "on-primary-container": "#5b000e",
+                        "on-primary": "#680011",
+                        "secondary-fixed": "#ffddb4",
+                        "tertiary-fixed-dim": "#c7c5d4",
+                        "tertiary-container": "#908f9e",
+                        "surface-variant": "#353438",
+                        "inverse-primary": "#bb162c",
+                        "surface-bright": "#39393c",
+                        "on-tertiary": "#2f2f3b",
+                        "on-surface": "#e4e1e6",
+                        "on-secondary-fixed": "#291800",
+                        "outline": "#ab8987",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed-variant": "#92001c",
+                        "error-container": "#93000a",
+                        "on-primary-fixed": "#410007",
+                        "tertiary": "#c7c5d4",
+                        "on-tertiary-fixed": "#1a1b26",
+                        "tertiary-fixed": "#e3e1f1",
+                        "surface-tint": "#ffb3b1",
+                        "secondary-fixed-dim": "#ffb955",
+                        "on-secondary": "#452b00",
+                        "primary": "#ffb3b1",
+                        "secondary": "#ffb955",
+                        "on-tertiary-fixed-variant": "#464652",
+                        "outline-variant": "#5b403f",
+                        "on-background": "#e4e1e6",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#131316",
+                        "surface-container": "#1f1f22",
+                        "inverse-on-surface": "#303033",
+                        "surface-dim": "#131316",
+                        "secondary-container": "#dc9100",
+                        "surface-container-low": "#1b1b1e",
+                        "surface-container-lowest": "#0e0e11",
+                        "background": "#131316",
+                        "on-surface-variant": "#e4bebc",
+                        "on-error": "#690005",
+                        "inverse-surface": "#e4e1e6",
+                        "primary-container": "#ff535a",
+                        "on-tertiary-container": "#292934",
+                        "primary-fixed": "#ffdad8",
+                        "surface-container-highest": "#353438",
+                        "primary-fixed-dim": "#ffb3b1",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "on-secondary-container": "#4f3100"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "8px",
+                        "margin-desktop": "40px",
+                        "xl": "32px",
+                        "sm": "12px",
+                        "margin-mobile": "20px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "base": "4px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-ai-italic": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-ai-italic": ["16px", { "lineHeight": "26px", "fontWeight": "400", "fontStyle": "italic" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-lg min-h-screen flex flex-col relative overflow-x-hidden antialiased">
+<!-- TopNavBar (Adapted for Mobile) -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant shadow-sm flex justify-between items-center px-margin-mobile py-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary-container fill text-[28px]">restaurant_menu</span>
+<span class="font-headline-md text-headline-md font-bold text-primary">TableMate AI</span>
+</div>
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant border border-outline-variant overflow-hidden cursor-pointer">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A close up, high quality profile photo of a sophisticated user in a dimly lit, upscale modern environment, soft cinematic lighting, deep shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZESNeVCfp9eRsTR1L3vrduDRZ8JMiy_d0t5Xtkh2itKIdI7NozJ-OXwpMPrO_7PhCbbMVmrqhk54HDu8gBGiRXRXDWTDox5NnM4xeK8lsLyZvJ4OwaNgEmnLm5bHciUY_0XauiOmCIg30aJSJFKiQFQBHoMWBC8umxVsO-BExddy6qSQO_HQP2cklI8Cq8DxtiuMf2GjYrvCDlUlb5iIaWnTwK3DP-_UFbwH1kRpwvZkVdYQKoVLaBQ"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 px-margin-mobile py-lg flex flex-col gap-lg pb-32">
+<!-- Brand Header / Tagline -->
+<section class="flex flex-col gap-base mt-sm">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Curated Dining, <br/><span class="text-primary-container">Effortlessly.</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Your intelligent concierge has analyzed your preferences and current trends to find the perfect table for tonight.</p>
+</section>
+<!-- Compact Preference Form -->
+<section class="bg-surface-container border border-outline-variant rounded-xl p-md shadow-sm relative overflow-hidden group transition-all duration-300">
+<!-- Glassmorphic highlight -->
+<div class="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none rounded-xl"></div>
+<div class="flex justify-between items-center mb-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary-container text-[20px]">tune</span>
+<h2 class="font-label-md text-label-md text-on-surface">Current Preferences</h2>
+</div>
+<button class="text-primary-container font-label-sm text-label-sm hover:underline cursor-pointer">Edit</button>
+</div>
+<div class="flex flex-wrap gap-xs mt-sm">
+<span class="bg-surface-variant text-on-surface-variant font-label-sm text-label-sm px-sm py-[4px] rounded-full border border-outline-variant">Date Night</span>
+<span class="bg-surface-variant text-on-surface-variant font-label-sm text-label-sm px-sm py-[4px] rounded-full border border-outline-variant">Italian / Mediterranean</span>
+<span class="bg-surface-variant text-on-surface-variant font-label-sm text-label-sm px-sm py-[4px] rounded-full border border-outline-variant">$$$</span>
+<span class="bg-surface-variant text-on-surface-variant font-label-sm text-label-sm px-sm py-[4px] rounded-full border border-outline-variant">Quiet Vibe</span>
+</div>
+</section>
+<!-- AI Ranked Results Area -->
+<section class="flex flex-col gap-md mt-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface">Top AI Match</h2>
+<div class="flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined fill text-[18px]">auto_awesome</span>
+<span class="font-label-sm text-label-sm">High Confidence</span>
+</div>
+</div>
+<!-- #1 Recommendation Card -->
+<div class="bg-surface-container-high rounded-xl overflow-hidden shadow-lg border border-outline-variant relative">
+<!-- Badge -->
+<div class="absolute top-sm left-sm bg-primary-container text-on-primary-container font-label-sm text-label-sm px-sm py-[4px] rounded-full shadow-md z-10 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">stars</span>
+                    #1 Match
+                </div>
+<!-- Image -->
+<div class="h-48 w-full relative">
+<img alt="Restaurant Image" class="w-full h-full object-cover" data-alt="A beautifully plated, sophisticated Italian dish in a dimly lit, moody, high-end restaurant setting. The table is dark wood, illuminated by warm, focused spotlighting creating deep shadows. A glass of red wine sits in the soft background blur. The aesthetic is luxurious, exclusive, and culinary-focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMr782yxgaAdrBSQcLZ0r6hOZwLnq7ItUvvoAwMo0cLR6yolt2QvLgXWzw6XJBTuQTBETUYyT_Ao9YCbaaeW_hhJl7hlRG_jemTPkIG8UMd3owUlhtNOLbT6WvyAkW7gM68PrBJy6v2tXYyYD56RzyAQpzCe7lfhnD_VpTebeLoYB2_7VdNV0laOFaMF6Vsg8KI_qTncHU85ZY6KGKaCZ7YCO5IVEU7WLuQPlI8NI6b6UJqLl5IhWdTg"/>
+<!-- Gradient overlay for text legibility if needed later -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-high to-transparent"></div>
+</div>
+<!-- Content -->
+<div class="p-md flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Osteria Muro</h3>
+<p class="font-label-md text-label-md text-on-surface-variant mt-[2px]">Modern Italian • Downtown</p>
+</div>
+<div class="flex items-center gap-[4px] bg-surface-variant px-sm py-[4px] rounded-full">
+<span class="font-label-sm text-label-sm text-on-surface">4.9</span>
+<span class="material-symbols-outlined text-secondary fill text-[14px]">star</span>
+</div>
+</div>
+<!-- AI Reasoning Block -->
+<div class="border-l-2 border-primary-container pl-sm mt-xs relative">
+<!-- Backdrop blur to denote AI layer -->
+<div class="absolute inset-0 -left-sm bg-primary-container/[0.02] backdrop-blur-[2px] rounded-r-lg z-0 pointer-events-none"></div>
+<p class="font-body-ai-italic text-body-ai-italic text-on-surface-variant relative z-10">
+                            "Perfectly aligns with your request for a quiet, high-end date night. Their handmade agnolotti is highly rated by users with similar taste profiles to yours, and they currently have a corner booth available."
+                        </p>
+</div>
+<div class="flex gap-sm mt-sm">
+<button class="flex-1 bg-primary-container text-white font-label-md text-label-md py-sm rounded-lg hover:bg-inverse-primary transition-colors shadow-sm flex items-center justify-center gap-xs">
+                            Reserve 7:30 PM
+                        </button>
+<button class="w-12 h-12 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Secondary Card Outline (to show it's a list) -->
+<div class="bg-surface-container rounded-xl p-md border border-outline-variant flex gap-md opacity-80 cursor-pointer hover:opacity-100 transition-opacity mt-sm">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0">
+<img alt="Restaurant thumbnail" class="w-full h-full object-cover" data-alt="A sleek, minimalist modern dining room with dark charcoal walls, warm amber pendant lighting, and sleek leather seating. Focus on the sophisticated architectural details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9vpinF5zxkTiax-wDM--v4uWWXpZ9qXBwKwdNzJFYodkMo_hfB1MePBmaaznZfH8LnApjc0b80ntCOAzDaUc2a1KGHsTxA6wUK2zcvC5vB9nIGoFeHqnYDTMyDLFPqE5ftW-zEU9PHQlMLDYA4-yQ0C62uNjk791ytdV69vo8xr50F8WMh7Z2LjnSon-9KC6Q3S-1i9KDeHey9IbdNO0bmKlXHeIRmKbwUrj46cEufELt_d-EQaub4Q"/>
+</div>
+<div class="flex flex-col justify-center gap-xs flex-1">
+<div class="flex justify-between items-center">
+<h4 class="font-label-md text-label-md font-bold text-on-surface">Barrique</h4>
+<div class="flex items-center gap-[2px]">
+<span class="font-label-sm text-label-sm text-on-surface-variant">4.7</span>
+<span class="material-symbols-outlined text-secondary fill text-[12px]">star</span>
+</div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">French Wine Bar • West End</p>
+<p class="font-label-sm text-label-sm text-primary-container mt-xs text-xs">92% Match • Good alternative</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Derived from SideNavBar JSON for Mobile) -->
+<!-- Applying Active State Logic: Home is active -->
+<nav class="fixed bottom-0 w-full bg-surface-container border-t border-outline-variant flex justify-around items-center px-sm py-[8px] pb-safe z-50">
+<!-- Tab 1: Home (Active) -->
+<div class="flex flex-col items-center gap-[2px] cursor-pointer min-w-[64px]">
+<div class="px-md py-[4px] bg-primary-container text-on-primary-container rounded-full flex items-center justify-center transition-all duration-300 ease-in-out">
+<span class="material-symbols-outlined fill text-[24px]">home</span>
+</div>
+<span class="font-label-sm text-[11px] font-bold text-primary leading-tight">Home</span>
+</div>
+<!-- Tab 2: Favorites (Inactive) -->
+<div class="flex flex-col items-center gap-[4px] cursor-pointer min-w-[64px] group">
+<div class="px-md py-[4px] text-on-surface-variant group-hover:bg-surface-variant rounded-full flex items-center justify-center transition-all duration-300 ease-in-out">
+<span class="material-symbols-outlined text-[24px]">bookmark</span>
+</div>
+<span class="font-label-sm text-[11px] font-medium text-on-surface-variant leading-tight group-hover:text-on-surface transition-colors">Favorites</span>
+</div>
+<!-- Tab 3: History (Inactive) -->
+<div class="flex flex-col items-center gap-[4px] cursor-pointer min-w-[64px] group">
+<div class="px-md py-[4px] text-on-surface-variant group-hover:bg-surface-variant rounded-full flex items-center justify-center transition-all duration-300 ease-in-out">
+<span class="material-symbols-outlined text-[24px]">history</span>
+</div>
+<span class="font-label-sm text-[11px] font-medium text-on-surface-variant leading-tight group-hover:text-on-surface transition-colors">History</span>
+</div>
+<!-- Tab 4: Profile (Inactive) -->
+<div class="flex flex-col items-center gap-[4px] cursor-pointer min-w-[64px] group">
+<div class="px-md py-[4px] text-on-surface-variant group-hover:bg-surface-variant rounded-full flex items-center justify-center transition-all duration-300 ease-in-out">
+<span class="material-symbols-outlined text-[24px]">person</span>
+</div>
+<span class="font-label-sm text-[11px] font-medium text-on-surface-variant leading-tight group-hover:text-on-surface transition-colors">Profile</span>
+</div>
+</nav>
+<!-- Safe area spacing for iOS -->
+<style>
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom, 16px);
+        }
+    </style>
+</body></html>

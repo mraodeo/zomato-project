@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TableMate AI - UI Kit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#2a2a2d",
+                      "on-primary-container": "#5b000e",
+                      "on-primary": "#680011",
+                      "secondary-fixed": "#ffddb4",
+                      "tertiary-fixed-dim": "#c7c5d4",
+                      "tertiary-container": "#908f9e",
+                      "surface-variant": "#353438",
+                      "inverse-primary": "#bb162c",
+                      "surface-bright": "#39393c",
+                      "on-tertiary": "#2f2f3b",
+                      "on-surface": "#e4e1e6",
+                      "on-secondary-fixed": "#291800",
+                      "outline": "#ab8987",
+                      "error": "#ffb4ab",
+                      "on-primary-fixed-variant": "#92001c",
+                      "error-container": "#93000a",
+                      "on-primary-fixed": "#410007",
+                      "tertiary": "#c7c5d4",
+                      "on-tertiary-fixed": "#1a1b26",
+                      "tertiary-fixed": "#e3e1f1",
+                      "surface-tint": "#ffb3b1",
+                      "secondary-fixed-dim": "#ffb955",
+                      "on-secondary": "#452b00",
+                      "primary": "#ffb3b1",
+                      "secondary": "#ffb955",
+                      "on-tertiary-fixed-variant": "#464652",
+                      "outline-variant": "#5b403f",
+                      "on-background": "#e4e1e6",
+                      "on-error-container": "#ffdad6",
+                      "surface": "#131316",
+                      "surface-container": "#1f1f22",
+                      "inverse-on-surface": "#303033",
+                      "surface-dim": "#131316",
+                      "secondary-container": "#dc9100",
+                      "surface-container-low": "#1b1b1e",
+                      "surface-container-lowest": "#0e0e11",
+                      "background": "#131316",
+                      "on-surface-variant": "#e4bebc",
+                      "on-error": "#690005",
+                      "inverse-surface": "#e4e1e6",
+                      "primary-container": "#ff535a",
+                      "on-tertiary-container": "#292934",
+                      "primary-fixed": "#ffdad8",
+                      "surface-container-highest": "#353438",
+                      "primary-fixed-dim": "#ffb3b1",
+                      "on-secondary-fixed-variant": "#633f00",
+                      "on-secondary-container": "#4f3100"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "8px",
+                      "margin-desktop": "40px",
+                      "xl": "32px",
+                      "sm": "12px",
+                      "margin-mobile": "20px",
+                      "lg": "24px",
+                      "md": "16px",
+                      "base": "4px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "body-ai-italic": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "label-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "display-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-ai-italic": ["16px", {"lineHeight": "26px", "fontWeight": "400", "fontStyle": "italic"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Glassmorphism utility for AI surfaces */
+        .ai-glass {
+            background: rgba(37, 37, 48, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-lg antialiased flex overflow-x-hidden min-h-screen">
+<!-- Shared Component: SideNavBar -->
+<nav class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-surface-container dark:bg-surface-container border-r border-outline-variant shadow-lg p-lg z-40 transition-all duration-300 ease-in-out">
+<div class="mb-xl">
+<h1 class="font-headline-md text-headline-md text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined filled">restaurant</span>
+                TableMate AI
+            </h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-base">Your Digital Concierge</p>
+</div>
+<ul class="flex-1 flex flex-col gap-sm font-label-md text-label-md text-primary dark:text-primary">
+<li>
+<!-- Active State -->
+<a class="bg-primary-container text-on-primary-container rounded-lg px-md py-sm font-bold flex items-center gap-md" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+                    Home
+                </a>
+</li>
+<li>
+<!-- Inactive State -->
+<a class="text-on-surface-variant px-md py-sm hover:bg-surface-variant dark:hover:bg-surface-variant rounded-lg transition-all flex items-center gap-md" href="#">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+                    Favorites
+                </a>
+</li>
+<li>
+<a class="text-on-surface-variant px-md py-sm hover:bg-surface-variant dark:hover:bg-surface-variant rounded-lg transition-all flex items-center gap-md" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+                    History
+                </a>
+</li>
+<li>
+<a class="text-on-surface-variant px-md py-sm hover:bg-surface-variant dark:hover:bg-surface-variant rounded-lg transition-all flex items-center gap-md" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                    Insights
+                </a>
+</li>
+<li>
+<a class="text-on-surface-variant px-md py-sm hover:bg-surface-variant dark:hover:bg-surface-variant rounded-lg transition-all flex items-center gap-md" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+                    Profile
+                </a>
+</li>
+</ul>
+<div class="mt-auto pt-lg border-t border-outline-variant">
+<button class="w-full bg-primary-container text-surface rounded-lg px-md py-sm font-label-md text-label-md font-bold mb-md hover:opacity-90 transition-opacity">
+                Book a Table
+            </button>
+<ul class="flex flex-col gap-xs font-label-md text-label-md">
+<li>
+<a class="text-on-surface-variant px-md py-sm hover:bg-surface-variant dark:hover:bg-surface-variant rounded-lg transition-all flex items-center gap-md" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                        Help
+                    </a>
+</li>
+<li>
+<a class="text-on-surface-variant px-md py-sm hover:bg-surface-variant dark:hover:bg-surface-variant rounded-lg transition-all flex items-center gap-md" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                        Logout
+                    </a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 p-margin-mobile md:p-margin-desktop w-full max-w-7xl mx-auto">
+<header class="mb-xl">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-xs">UI Component Library</h2>
+<p class="text-on-surface-variant">System states, alerts, and controls for TableMate AI.</p>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-lg">
+<!-- 1. Skeleton Loaders -->
+<section class="bg-surface-container rounded-xl p-md md:p-lg border border-outline-variant shadow-lg flex flex-col gap-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Skeleton States</h3>
+<div class="flex flex-col gap-sm">
+<!-- Skeleton Card 1 -->
+<div class="flex items-center gap-md p-md bg-surface-container-high rounded-lg animate-pulse">
+<div class="w-16 h-16 bg-surface-variant rounded-lg shrink-0"></div>
+<div class="flex-1">
+<div class="h-5 bg-surface-variant rounded w-3/4 mb-2"></div>
+<div class="h-4 bg-surface-variant rounded w-1/2"></div>
+</div>
+<div class="w-8 h-8 bg-surface-variant rounded-full shrink-0"></div>
+</div>
+<!-- Skeleton Card 2 -->
+<div class="flex items-center gap-md p-md bg-surface-container-high rounded-lg animate-pulse">
+<div class="w-16 h-16 bg-surface-variant rounded-lg shrink-0"></div>
+<div class="flex-1">
+<div class="h-5 bg-surface-variant rounded w-2/3 mb-2"></div>
+<div class="h-4 bg-surface-variant rounded w-1/3"></div>
+</div>
+<div class="w-8 h-8 bg-surface-variant rounded-full shrink-0"></div>
+</div>
+<!-- Skeleton Card 3 -->
+<div class="flex items-center gap-md p-md bg-surface-container-high rounded-lg animate-pulse">
+<div class="w-16 h-16 bg-surface-variant rounded-lg shrink-0"></div>
+<div class="flex-1">
+<div class="h-5 bg-surface-variant rounded w-4/5 mb-2"></div>
+<div class="h-4 bg-surface-variant rounded w-2/5"></div>
+</div>
+<div class="w-8 h-8 bg-surface-variant rounded-full shrink-0"></div>
+</div>
+</div>
+</section>
+<!-- 2 & 3. Empty & Idle States -->
+<section class="bg-surface-container rounded-xl p-md md:p-lg border border-outline-variant shadow-lg flex flex-col gap-lg">
+<h3 class="font-headline-md text-headline-md text-primary">System States</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md h-full">
+<!-- Idle State -->
+<div class="bg-surface-container-low rounded-lg p-lg flex flex-col items-center justify-center text-center h-48 border border-dashed border-outline-variant">
+<span class="material-symbols-outlined text-display-lg text-tertiary-container mb-sm" data-icon="tune">tune</span>
+<p class="font-headline-md text-headline-md text-on-surface mb-xs">Set Preferences</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Tell us what you're craving to get AI recommendations.</p>
+</div>
+<!-- Empty Results -->
+<div class="bg-surface-container-low rounded-lg p-lg flex flex-col items-center justify-center text-center h-48 border border-dashed border-outline-variant">
+<span class="material-symbols-outlined text-display-lg text-surface-variant mb-sm" data-icon="search_off">search_off</span>
+<p class="font-headline-md text-headline-md text-on-surface mb-xs">No Matches</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">We couldn't find any spots matching those exact filters.</p>
+</div>
+</div>
+</section>
+<!-- 4. Alert Banners -->
+<section class="bg-surface-container rounded-xl p-md md:p-lg border border-outline-variant shadow-lg flex flex-col gap-md lg:col-span-2">
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Alert Banners</h3>
+<div class="flex flex-col gap-sm">
+<!-- Amber Warning -->
+<div class="bg-secondary-container text-on-secondary-container p-md rounded-lg flex items-start gap-md shadow-md border border-secondary-fixed/20">
+<span class="material-symbols-outlined mt-1" data-icon="warning">warning</span>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md font-bold">AI Concierge Limited</h4>
+<p class="font-label-sm text-label-sm opacity-90 mt-1">Our AI is temporarily processing a high volume of requests. Standard search remains active.</p>
+</div>
+<button class="opacity-70 hover:opacity-100 transition-opacity"><span class="material-symbols-outlined" data-icon="close">close</span></button>
+</div>
+<!-- Red Error -->
+<div class="bg-error-container text-on-error-container p-md rounded-lg flex items-start gap-md shadow-md border border-error/20">
+<span class="material-symbols-outlined mt-1" data-icon="error">error</span>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md font-bold">Location Unknown</h4>
+<p class="font-label-sm text-label-sm opacity-90 mt-1">We couldn't determine your current area. Please enter a city or neighborhood manually.</p>
+</div>
+<button class="opacity-70 hover:opacity-100 transition-opacity"><span class="material-symbols-outlined" data-icon="close">close</span></button>
+</div>
+<!-- Blue/Tertiary Info -->
+<div class="bg-tertiary-container text-on-tertiary-container p-md rounded-lg flex items-start gap-md shadow-md border border-tertiary/20">
+<span class="material-symbols-outlined mt-1" data-icon="info">info</span>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md font-bold">New Restaurants Added</h4>
+<p class="font-label-sm text-label-sm opacity-90 mt-1">We've just expanded our database in your area. Check out the latest Michelin Guide additions.</p>
+</div>
+<button class="opacity-70 hover:opacity-100 transition-opacity"><span class="material-symbols-outlined" data-icon="close">close</span></button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+*.env
+
+# Next.js
+stitch_tablemate_ai_recommendation_engine/node_modules/
+stitch_tablemate_ai_recommendation_engine/.next/
+stitch_tablemate_ai_recommendation_engine/out/
+stitch_tablemate_ai_recommendation_engine/.env*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data Cache
+data/cache/
