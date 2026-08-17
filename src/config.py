@@ -15,7 +15,7 @@ CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
 # Dataset Config
 DATASET_ID = "ManikaSaini/zomato-restaurant-recommendation"
-CACHE_PATH = CACHE_DIR / "restaurants.parquet"
+CACHE_PATH = CACHE_DIR / "restaurants_optimized_v2.parquet"
 
 # LLM Config
 LLM_PROVIDER = os.getenv("LLM_PROVIDER", "groq")
