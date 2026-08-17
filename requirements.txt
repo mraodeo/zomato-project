@@ -3,6 +3,8 @@ pandas
 datasets
 pydantic
 python-dotenv
+pyarrow
+groq
 
 # Testing and UI (optional for later)
 pytest
