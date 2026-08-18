@@ -9,6 +9,7 @@ from src.recommendation.engine import recommend
 from src.main import load_dataset_summary
 
 import os
+import asyncio
 
 app = FastAPI(title="Stitch Tablemate AI Recommendation Engine API")
 
@@ -26,13 +27,20 @@ app.add_middleware(
 # Global variable to hold the cached dataset
 df_global = None
 
+def load_data_background():
+    global df_global
+    print("API Startup: Loading dataset in background...")
+    try:
+        df_global = load_dataset_summary()
+        print("API Startup: Dataset loaded successfully.")
+    except Exception as e:
+        print(f"API Startup: Failed to load dataset: {e}")
+
 @app.on_event("startup")
 async def startup_event():
-    """Load dataset on API startup."""
-    global df_global
-    print("API Startup: Loading dataset...")
-    df_global = load_dataset_summary()
-    print("API Startup: Dataset loaded successfully.")
+    """Start loading dataset in the background so it doesn't block port binding."""
+    loop = asyncio.get_event_loop()
+    loop.run_in_executor(None, load_data_background)
 
 @app.post("/api/v1/recommendations")
 async def get_recommendations(prefs: UserPreferences):

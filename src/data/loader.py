@@ -20,15 +20,18 @@ def load_zomato_dataset(force_download: bool = False) -> pd.DataFrame:
     print(f"Downloading dataset {DATASET_ID} from Hugging Face...")
     ds = load_dataset(DATASET_ID)
     
-    # Handle datasets that might not use 'train' split by default
-    if 'train' in ds:
-        df = ds['train'].to_pandas()
-    else:
-        df = list(ds.values())[0].to_pandas()
-        
-    # Drop massive heavy columns to save memory and avoid OOM kills on Railway (500MB limit)
+    # Drop massive heavy columns before converting to pandas to completely avoid OOM
     heavy_columns = ['reviews_list', 'menu_item', 'dish_liked']
-    df = df.drop(columns=[col for col in heavy_columns if col in df.columns], errors='ignore')
+    
+    if 'train' in ds:
+        dataset_split = ds['train']
+    else:
+        dataset_split = list(ds.values())[0]
+        
+    cols_to_remove = [col for col in heavy_columns if col in dataset_split.column_names]
+    dataset_split = dataset_split.remove_columns(cols_to_remove)
+    
+    df = dataset_split.to_pandas()
         
     print(f"Saving dataset to cache: {CACHE_PATH}")
     df.to_parquet(CACHE_PATH, index=False)
